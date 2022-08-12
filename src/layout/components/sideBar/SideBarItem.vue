@@ -29,60 +29,61 @@
 </template>
 
 <script>
-import PageLink from "./Link";
-import { isAbsolutePath } from "@/utils/validate";
-import path from "path";
+/* eslint-disable prettier/prettier */
+import PageLink from './Link'
+import { isAbsolutePath } from '@/utils/validate'
+import path from 'path'
 // 定义全局变量防止出现for内渲染死循环
 var childItem = null
 export default {
-  name: "SidebarItem",
+  name: 'SidebarItem',
   props: {
     item: {
       type: Object,
-      required: true
+      required: true,
     },
     basePath: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      childItemAlias: childItem
-    };
+      childItemAlias: childItem,
+    }
   },
   methods: {
     hasOnlyChild(children = [], item) {
       // debugger
-      let newChildren = children.filter(obj => {
+      let newChildren = children.filter((obj) => {
         if (obj.hidden) {
-          return false;
+          return false
         } else {
-          return true;
+          return true
         }
-      });
+      })
       if (newChildren.length === 1 && !item.meta) {
-        this.childItem = newChildren[0];
-        return true;
+        this.childItem = newChildren[0]
+        return true
       }
       if (newChildren.length === 0) {
-        this.childItem = { ...item, path: "", noChild: true };
-        return true;
+        this.childItem = { ...item, path: '', noChild: true }
+        return true
       }
-      return false;
+      return false
     },
     resolvePath(router) {
       if (isAbsolutePath(router)) {
-        return router;
+        return router
       }
       if (isAbsolutePath(this.basePath)) {
-        return this.basePath;
+        return this.basePath
       }
-      return path.join(this.basePath, router);
-    }
+      return path.join(this.basePath, router)
+    },
   },
   components: {
-    PageLink
-  }
-};
+    PageLink,
+  },
+}
 </script>

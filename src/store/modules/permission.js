@@ -1,22 +1,23 @@
-import { asyncRoutes, currencyRoutes } from "@/router";
+/* eslint-disable prettier/prettier */
+import { asyncRoutes, currencyRoutes } from '@/router'
 
 const state = {
   routes: [],
   addRoutes: [],
-  isFindRouter: false
-};
+  isFindRouter: false,
+}
 const mutations = {
   SET_ROUTES(state, payload) {
-    state.routes = [...currencyRoutes, ...payload];
-    state.addRoutes = payload;
+    state.routes = [...currencyRoutes, ...payload]
+    state.addRoutes = payload
   },
-  SET_ISFINDROUTER(state, value){
+  SET_ISFINDROUTER(state, value) {
     state.isFindRouter = value
-  }
-};
+  },
+}
 // 遍历asyncRoutes动态路由
 // function forSearchArr(route, roles) {
-  // roles = JSON.parse(roles);
+// roles = JSON.parse(roles);
 //   let arrNew = [];
 //   for (let item of route) {
 //     let itemNew = { ...item }; //解决浅拷贝共享同一内存地址
@@ -31,30 +32,30 @@ const mutations = {
 // }
 const actions = {
   getAsyncRoutes({ commit, rootGetters }, roles) {
-    return new Promise(resolve => {
-      let routes = [];
-      if (rootGetters.userName === "admin") {
+    return new Promise((resolve) => {
+      let routes = []
+      if (rootGetters.userName === 'admin') {
         // 最高权限
-        routes = asyncRoutes || "";
+        routes = asyncRoutes || ''
       } else {
         // 权限控制
-        window.console.log(roles);
+        window.console.log(roles)
         // routes = forSearchArr(asyncRoutes, roles);
-        routes = asyncRoutes || "";
+        routes = asyncRoutes || ''
       }
-      commit("SET_ROUTES", routes);
+      commit('SET_ROUTES', routes)
       commit('SET_ISFINDROUTER', true)
-      resolve(routes);
-    });
+      resolve(routes)
+    })
   },
   delIsFindRouter({ commit }) {
-    commit("SET_ISFINDROUTER",false);
+    commit('SET_ISFINDROUTER', false)
   },
-};
+}
 
 export default {
   namespaced: true,
   state,
   mutations,
-  actions
-};
+  actions,
+}
