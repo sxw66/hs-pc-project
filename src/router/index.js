@@ -97,7 +97,7 @@ export const asyncRoutes = [
            component: Layout,
            meta: {
              title: '表格',
-             icon: 'el-icon-table iconfont',
+             icon: 'el-icon-s-order',
            },
            children: [
              {
@@ -167,7 +167,7 @@ export const asyncRoutes = [
            component: Layout,
            name: 'Excel',
            redirect: '/excel-operate/excel-out',
-           meta: { icon: 'el-icon-excel iconfont', title: 'Excel' },
+           meta: { icon: 'el-icon-printer', title: 'Excel' },
            children: [
              {
                path: 'excel-out',
@@ -190,7 +190,8 @@ export const asyncRoutes = [
            redirect: '/error/404',
            meta: {
              title: '其他',
-             icon: 'el-icon-table iconfont',
+             //  icon: 'el-icon-table iconfont',
+             icon: 'el-icon-s-grid',
            },
            children: [
              {
