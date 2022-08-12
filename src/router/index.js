@@ -66,136 +66,142 @@ export const currencyRoutes = [
 ];
 /*动态添加routers*/
 export const asyncRoutes = [
-  {
-    path: "/permission",
-    name: "Permission",
-    component: Layout,
-    redirect: "/permission/page-use",
-    meta: {
-      title: "权限",
-      icon: "el-icon-lock"
-    },
-    children: [
-      {
-        path: "page-user",
-        name: "PageUser",
-        component: () => import("@v/permission/page-user"),
-        meta: { title: "用户页面", icon: "el-icon-user" }
-      },
-      {
-        path: "roles",
-        name: "Roles",
-        component: () => import("@v/permission/roles"),
-        meta: { title: "权限设置", icon: "el-icon-s-tools" }
-      }
-    ]
-  },
-  {
-    path: "/table",
-    name: "Table",
-    redirect: "/table/base-table",
-    component: Layout,
-    meta: {
-      title: "表格",
-      icon: "el-icon-table iconfont"
-    },
-    children: [
-      {
-        path: "base-table",
-        name: "BaseTable",
-        component: () => import("@v/table/common-table"),
-        meta: { title: "普通表格" }
-      },
-      {
-        path: "complex-table",
-        name: "ComplexTable",
-        component: () => import("@v/table/complex-table"),
-        meta: { title: "复杂表格" }
-      }
-    ]
-  },
-  {
-    path: "/components",
-    component: Layout,
-    name: "Components",
-    redirect: "/components/slide-yz",
-    meta: { icon: "el-icon-coin", title: "组件" },
-    children: [
-      {
-        path: "upload",
-        name: "Upload",
-        component: () => import("@v/components/pushImg"),
-        meta: { icon: "el-icon-upload", title: "上传图片" }
-      }
-    ]
-  },
-  {
-    path: "/echarts",
-    component: Layout,
-    name: "Echarts",
-    redirect: "/echarts/slide-chart",
-    meta: { icon: "el-icon-s-marketing", title: "Echarts" },
-    children: [
-      {
-        path: "slide-chart",
-        name: "Sldie-chart",
-        component: () => import("@v/echarts/slide-chart"),
-        meta: { title: "滑动charts" }
-      },
-      {
-        path: "dynamic-chart",
-        name: "Dynamic-chart",
-        component: () => import("@v/echarts/dynamic-chart"),
-        meta: { title: "切换charts" }
-      },
-      {
-        path: 'structure-chart',
-        name: 'Structure-chart',
-        component: () => import('@v/echarts/structure-chart'),
-        meta: { title: '图表 charts' },
-      },
-    ]
-  },
-  {
-    path: "/excel",
-    component: Layout,
-    name: "Excel",
-    redirect: "/excel-operate/excel-out",
-    meta: { icon: "el-icon-excel iconfont", title: "Excel" },
-    children: [
-      {
-        path: "excel-out",
-        name: "Excel-out",
-        component: () => import("@v/excel-operate/excel-out"),
-        meta: { title: "Excel导出" }
-      },
-      {
-        path: "excel-in",
-        name: "Excel-in",
-        component: () => import("@v/excel-operate/excel-in"),
-        meta: { title: "Excel导入" }
-      }
-    ]
-  },
-  {
-    path: "/error",
-    component: Layout,
-    name: "error",
-    redirect: "/error/404",
-    meta: {
-      title: "其他",
-      icon: "el-icon-table iconfont"
-    },
-    children: [
-      {
-        path: "404",
-        name: "Page404",
-        component: () => import("@v/error-page/404"),
-        meta: { title: "404", icon: "el-icon-s-release" }
-      }
-    ]
-  }
-];
+         {
+           path: '/permission',
+           name: 'Permission',
+           component: Layout,
+           redirect: '/permission/page-use',
+           meta: {
+             title: '权限',
+             icon: 'el-icon-lock',
+           },
+           children: [
+             {
+               path: 'page-user',
+               name: 'PageUser',
+               component: () => import('@v/permission/page-user'),
+               meta: { title: '用户页面', icon: 'el-icon-user' },
+             },
+             {
+               path: 'roles',
+               name: 'Roles',
+               component: () => import('@v/permission/roles'),
+               meta: { title: '权限设置', icon: 'el-icon-s-tools' },
+             },
+           ],
+         },
+         {
+           path: '/table',
+           name: 'Table',
+           redirect: '/table/base-table',
+           component: Layout,
+           meta: {
+             title: '表格',
+             icon: 'el-icon-table iconfont',
+           },
+           children: [
+             {
+               path: 'base-table',
+               name: 'BaseTable',
+               component: () => import('@v/table/common-table'),
+               meta: { title: '普通表格' },
+             },
+             {
+               path: 'complex-table',
+               name: 'ComplexTable',
+               component: () => import('@v/table/complex-table'),
+               meta: { title: '复杂表格' },
+             },
+           ],
+         },
+         {
+           path: '/components',
+           component: Layout,
+           name: 'Components',
+           redirect: '/components/slide-yz',
+           meta: { icon: 'el-icon-coin', title: '组件' },
+           children: [
+             {
+               path: 'upload',
+               name: 'Upload',
+               component: () => import('@v/components/pushImg'),
+               meta: { icon: 'el-icon-upload', title: '上传图片' },
+             },
+           ],
+         },
+         {
+           path: '/echarts',
+           component: Layout,
+           name: 'Echarts',
+           redirect: '/echarts/slide-chart',
+           meta: { icon: 'el-icon-s-marketing', title: 'Echarts' },
+           children: [
+             {
+               path: 'slide-chart',
+               name: 'Sldie-chart',
+               component: () => import('@v/echarts/slide-chart'),
+               meta: { title: '滑动charts' },
+             },
+             {
+               path: 'dynamic-chart',
+               name: 'Dynamic-chart',
+               component: () => import('@v/echarts/dynamic-chart'),
+               meta: { title: '切换charts' },
+             },
+             {
+               path: 'structure-chart',
+               name: 'Structure-chart',
+               component: () => import('@v/echarts/structure-chart'),
+               meta: { title: '图表 charts' },
+             },
+             {
+               path: 'model-chart',
+               name: 'model-chart',
+               component: () => import('@v/echarts/model-chart'),
+               meta: { title: 'model charts' },
+             },
+           ],
+         },
+         {
+           path: '/excel',
+           component: Layout,
+           name: 'Excel',
+           redirect: '/excel-operate/excel-out',
+           meta: { icon: 'el-icon-excel iconfont', title: 'Excel' },
+           children: [
+             {
+               path: 'excel-out',
+               name: 'Excel-out',
+               component: () => import('@v/excel-operate/excel-out'),
+               meta: { title: 'Excel导出' },
+             },
+             {
+               path: 'excel-in',
+               name: 'Excel-in',
+               component: () => import('@v/excel-operate/excel-in'),
+               meta: { title: 'Excel导入' },
+             },
+           ],
+         },
+         {
+           path: '/error',
+           component: Layout,
+           name: 'error',
+           redirect: '/error/404',
+           meta: {
+             title: '其他',
+             icon: 'el-icon-table iconfont',
+           },
+           children: [
+             {
+               path: '404',
+               name: 'Page404',
+               component: () => import('@v/error-page/404'),
+               meta: { title: '404', icon: 'el-icon-s-release' },
+             },
+           ],
+         },
+       ]
 const creatRouter = () => {
   return new Router({
     routes: currencyRoutes,
